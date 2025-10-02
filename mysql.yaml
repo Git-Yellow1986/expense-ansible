@@ -1,0 +1,39 @@
+- name: mysql Configure
+  hosts: mysql
+  become: yes
+  tasks:
+    - name: Install MySQL server
+      ansible.builtin.package:
+        name: mysql-server
+        state: present
+
+    - name: Ensure MySQL service is started and enabled
+      ansible.builtin.service:
+        name: mysqld
+        state: started
+        enabled: yes
+
+    # - name: Set root password and remove anonymous users
+    #   ansible.builtin.mysql_user:
+    #     name: root
+    #     host_all: yes
+    #     password: "YourRootPassword"
+    #     priv: "*.*:ALL,GRANT"
+    #     state: present
+    #   no_log: true
+
+    # - name: Remove anonymous MySQL users
+    #   ansible.builtin.mysql_user:
+    #     name: ''
+    #     host_all: yes
+    #     state: absent
+
+    # - name: Remove test database
+    #   ansible.builtin.mysql_db:
+    #     name: test
+    #     state: absent
+
+    # - name: Reload privilege tables
+    #   ansible.builtin.mysql_db:
+    #     name: '*'
+    #     state: reload
