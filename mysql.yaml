@@ -2,6 +2,7 @@
   hosts: mysql
   connection: mysql
   become: yes
+  vars:
   mysql_root_password: ExpenseApp@1
   login_host: mysql.learnaws.space
   tasks:
@@ -17,12 +18,13 @@
       state: started
       enabled: yes
 
-  - name: mysql info
+  - name: connect to MySQL server
     community.mysql.mysql_info:
       login_user: root
       login_password: "{{ mysql_root_password }}"
       login_host: "{{ login_host }}"  
     register: mysql_info
+
   - name: Display MySQL info
     ansible.builtin.debug:
       msg: "{{ mysql_info }}"
