@@ -1,28 +1,29 @@
 - name: mysql Configure
   hosts: mysql
+  connection: mysql
   become: yes
   mysql_root_password: ExpenseApp@1
   login_host: mysql.learnaws.space
   tasks:
-        
-    - name: Install MySQL server
-      ansible.builtin.package:
-        name: mysql-server
-        state: present
+      
+  - name: Install MySQL server
+    ansible.builtin.package:
+      name: mysql-server
+      state: present
 
-    - name: Ensure MySQL service is started and enabled
-      ansible.builtin.service:
-        name: mysqld
-        state: started
-        enabled: yes
+  - name: Ensure MySQL service is started and enabled
+    ansible.builtin.service:
+      name: mysqld
+      state: started
+      enabled: yes
 
-      community.mysql.mysql_info:
-        login_user: root
-        login_password: "{{ mysql_root_password }}"
-        login_host: "{{ login_host }}"  
-      register: mysql_info
-    - name: Display MySQL info
-      ansible.builtin.debug:
-        msg: "{{ mysql_info }}"
+    community.mysql.mysql_info:
+      login_user: root
+      login_password: "{{ mysql_root_password }}"
+      login_host: "{{ login_host }}"  
+    register: mysql_info
+  - name: Display MySQL info
+    ansible.builtin.debug:
+      msg: "{{ mysql_info }}"
 
-    
+  
