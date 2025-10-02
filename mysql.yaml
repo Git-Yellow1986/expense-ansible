@@ -1,6 +1,5 @@
 - name: mysql Configure
   hosts: mysql
-  connection: mysql
   become: yes
   vars:
     mysql_root_password: "ExpenseApp@1"
