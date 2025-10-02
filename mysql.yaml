@@ -3,8 +3,8 @@
   connection: mysql
   become: yes
   vars:
-    mysql_root_password: ExpenseApp@1
-    login_host: mysql.learnaws.space
+    mysql_root_password: "ExpenseApp@1"
+    login_host: "mysql.learnaws.space"
   tasks:
       
   - name: Install MySQL server
