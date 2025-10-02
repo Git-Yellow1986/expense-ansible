@@ -5,7 +5,12 @@
     mysql_root_password: "ExpenseApp@1"
     login_host: "mysql.learnaws.space"
   tasks:
-      
+  - name: Install PyMySQL
+    ansible.builtin.pip:
+    name: PyMySQL
+    state: present
+    executable: pip3.9
+
   - name: Install MySQL server
     ansible.builtin.package:
       name: mysql-server
