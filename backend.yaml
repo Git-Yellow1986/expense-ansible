@@ -21,8 +21,8 @@
 
   - name: create login_user
     ansible.builtin.user:
-      name: "{{ login_user }}"
-      state: present
+      name: "expense"
+      #state: present
       
   - name: create app directory
     ansible.builtin.file:
