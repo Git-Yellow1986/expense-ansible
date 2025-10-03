@@ -58,12 +58,12 @@
 
   - name: import mysql database
     community.mysql.mysql_db:
-    login_user: root  
-    login_password: "{{ mysql_root_password }}"
-    login_host: "{{ login_host }}"  
-    target: /app/schema/database.sql
-    name: all
-    state: import
+      login_user: root  
+      login_password: "{{ mysql_root_password }}"
+      login_host: "{{ login_host }}"  
+      target: /app/schema/database.sql
+      name: all
+      state: import
 
   - name: daemon-reload
     ansible.buildin.systemd_service:
