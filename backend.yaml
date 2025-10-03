@@ -67,7 +67,7 @@
 
   - name: daemon-reload
     ansible.buildin.systemd_service:
-      daemon_reload: yes
+      daemon_reload: true
       state: reloaded
       name: backend
     
