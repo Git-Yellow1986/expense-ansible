@@ -11,7 +11,7 @@
     ansible.builtin.pip:
       name: 
       - PyMySQL
-      - criptography
+      - cryptography
       executable: pip3.9
 
   - name: disable nodejs module
@@ -55,6 +55,13 @@
     ansible.builtin.copy:
       src: backend.service
       dest: /etc/systemd/system/backend.service
+
+  # - name: ansible to install pymysql
+  #   ansible.builtin.pip:
+  #     name:
+  #     - PyMySQL
+  #     - cryptography
+  #     executable: pip3.9
 
   - name: import mysql database
     community.mysql.mysql_db:
