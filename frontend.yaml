@@ -13,15 +13,15 @@
       state: started
       enabled: yes
 
-  # - name: clear default Nginx html files
-  #   ansible.buitlin.file:
-  #     path: /usr/share/nginx/html 
-  #     state: absent
-  
-  - name: remove html directory
-    ansible.builtin.file:
-      path: /usr/share/nginx/html
+  - name: clear default Nginx html files
+    ansible.buitlin.file:
+      path: /usr/share/nginx/html 
       state: absent
+  
+  # - name: remove html directory
+  #   ansible.builtin.file:
+  #     path: /usr/share/nginx/html
+  #     state: absent
 
 
   - name: create html directory
